@@ -1,0 +1,54 @@
+<h2 class="screen-align">Systementryfeature</h2>
+<div id="template-iid2" class="row">
+    <div id="template-iwi4" class="cell">
+        <label id="template-iaft" class="label">First_Name</label>
+        <input id="template-ilf7" [(ngModel)]="systemEntryFeature.first_name"
+        [ngModelOptions]="{standalone: true}" class="input form-control" />
+    </div>
+    <div id="template-issf" class="cell">
+        <label id="template-i4nj" class="label">Last_Name</label>
+        <input id="template-idp2" [(ngModel)]="systemEntryFeature.last_name"
+        [ngModelOptions]="{standalone: true}" class="input form-control" />
+    </div>
+</div>
+<button id="template-i9s7" (click)="GpCreate()" class="button btn btn-primary">create</button>
+<button id="template-ithfi" (click)="GpSearch()" class="button btn btn-primary">get</button>
+<button id="template-iudwx" (click)="GpDelete()" class="button btn btn-primary">delete</button>
+<div name="grid_template-issj" class="">
+    <table id="table" class="table table-bordered  table-striped" data-show-header="true"
+    data-pagination="true" data-id-field="name">
+        <thead class="table table-hover">
+            <tr>
+                <th *ngFor="let column of columnDefs">{{column.headerName}}</th>
+            </tr>
+        </thead>
+        <tbody class="table-design" *ngIf="rowData.length==0">
+            <td style="text-align: center;" colspan="5">No Data Found</td>
+        </tbody>
+        <tbody class="table-design" *ngIf="rowData.length>0">
+            <tr *ngFor="let values of rowData | slice: (page-1) * paginationPageSize :(page-1) * paginationPageSize + paginationPageSize">
+                <td>{{ values.last_name }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="text-right">
+        <ngb-pagination class="d-flex justify-content-start" [(page)]="page" [maxSize]="5"
+        [rotate]="true" [pageSize]="paginationPageSize" [collectionSize]="rowData.length"
+        [boundaryLinks]="true"></ngb-pagination>
+    </div>
+</div>
+<div id="myGrid" class=""></div>
+<button id="template-imvj9" (click)="GpGetAllValues()" class="button btn btn-primary">get all</button>
+<div id="template-ifd6l" class="row">
+    <div id="template-iptig" class="cell">
+        <label id="template-ifqdm" class="label">First_Name</label>
+        <input id="template-ivrcg" [(ngModel)]="systemEntryFeature.first_name"
+        [ngModelOptions]="{standalone: true}" class="input form-control" />
+    </div>
+    <div id="template-iagsc" class="cell">
+        <label id="template-ioa3s" class="label">Last_Name</label>
+        <input id="template-i2omj" [(ngModel)]="systemEntryFeature.last_name"
+        [ngModelOptions]="{standalone: true}" class="input form-control" />
+    </div>
+</div>
+<button id="template-irmx2" (click)="GpUpdate()" class="button btn btn-primary">update</button>

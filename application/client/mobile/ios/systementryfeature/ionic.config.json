@@ -1,0 +1,7 @@
+{
+  "name": "systementryfeature",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
