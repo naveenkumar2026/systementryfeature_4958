@@ -1,4 +1,4 @@
-name: aws_ec2_deployments_for_systementryfeature
+name: aws_ec2_deployments_for_SefNodeGen
 on:
   push:
     branches: 
@@ -15,8 +15,8 @@ env:
   AWS_VPC_SUBNET: ${{  secrets.AWS_VPC_SUBNET  }}
   AWS_VPC_SECURITY_GROUP: ${{  secrets.AWS_VPC_SECURITY_GROUP  }}
   AWS_ECS_CLUSTER_NAME: ${{  secrets.AWS_ECS_CLUSTER_NAME  }}
-  PROJECT_NAME: systementryfeature-4958
-  AWS_S3_BUCKET_NAME: systementryfeature-4958.geppetto.link
+  PROJECT_NAME: SefNodeGen-4958
+  AWS_S3_BUCKET_NAME: SefNodeGen-4958.geppetto.link
 
 jobs:
   Prerequisites:
@@ -32,11 +32,11 @@ jobs:
         run: aws s3api create-bucket --bucket ${{ env.AWS_S3_BUCKET_NAME }} --region us-east-1
       - name: Creating the aws ECR for each micro service
         run: |
-          aws ecr create-repository --repository-name geppetto-generatedcode-systementryfeature-4958-apigateway  --image-scanning-configuration scanOnPush=true  --region us-east-1
-          aws ecr create-repository --repository-name geppetto-generatedcode-systementryfeature-4958-authproxy  --image-scanning-configuration scanOnPush=true  --region us-east-1
-          aws ecr create-repository --repository-name geppetto-generatedcode-systementryfeature-4958-camunda  --image-scanning-configuration scanOnPush=true  --region us-east-1
-          aws ecr create-repository --repository-name geppetto-generatedcode-systementryfeature-4958-securitymanager  --image-scanning-configuration scanOnPush=true  --region us-east-1
-          aws ecr create-repository --repository-name geppetto-generatedcode-systementryfeature-4958-systementryfeature  --image-scanning-configuration scanOnPush=true  --region us-east-1
+          aws ecr create-repository --repository-name geppetto-generatedcode-SefNodeGen-4958-apigateway  --image-scanning-configuration scanOnPush=true  --region us-east-1
+          aws ecr create-repository --repository-name geppetto-generatedcode-SefNodeGen-4958-authproxy  --image-scanning-configuration scanOnPush=true  --region us-east-1
+          aws ecr create-repository --repository-name geppetto-generatedcode-SefNodeGen-4958-camunda  --image-scanning-configuration scanOnPush=true  --region us-east-1
+          aws ecr create-repository --repository-name geppetto-generatedcode-SefNodeGen-4958-securitymanager  --image-scanning-configuration scanOnPush=true  --region us-east-1
+          aws ecr create-repository --repository-name geppetto-generatedcode-SefNodeGen-4958-SefNodeGen  --image-scanning-configuration scanOnPush=true  --region us-east-1
   Build_and_upload_docker_images_to_ECR:
     needs: Prerequisites
     runs-on: ubuntu-latest
@@ -59,29 +59,29 @@ jobs:
         run: |
      
           cd application/services/default_services/authproxy
-          docker build -t $ECR_REGISTRY/geppetto-generatedcode-systementryfeature-4958-authproxy:$IMAGE_TAG .
-          docker push $ECR_REGISTRY/geppetto-generatedcode-systementryfeature-4958-authproxy:$IMAGE_TAG
+          docker build -t $ECR_REGISTRY/geppetto-generatedcode-SefNodeGen-4958-authproxy:$IMAGE_TAG .
+          docker push $ECR_REGISTRY/geppetto-generatedcode-SefNodeGen-4958-authproxy:$IMAGE_TAG
           echo "Successfully build the docker image for authproxy  and pushed to aws ecr"
 
           cd ../camunda
-          docker build -t $ECR_REGISTRY/geppetto-generatedcode-systementryfeature-4958-camunda:$IMAGE_TAG .
-          docker push $ECR_REGISTRY/geppetto-generatedcode-systementryfeature-4958-camunda:$IMAGE_TAG
+          docker build -t $ECR_REGISTRY/geppetto-generatedcode-SefNodeGen-4958-camunda:$IMAGE_TAG .
+          docker push $ECR_REGISTRY/geppetto-generatedcode-SefNodeGen-4958-camunda:$IMAGE_TAG
           echo "Successfully build the docker image for camunda  and pushed to aws ecr"
 
           cd ../securitymanager
-          docker build -t $ECR_REGISTRY/geppetto-generatedcode-systementryfeature-4958-securitymanager:$IMAGE_TAG .
-          docker push $ECR_REGISTRY/geppetto-generatedcode-systementryfeature-4958-securitymanager:$IMAGE_TAG
+          docker build -t $ECR_REGISTRY/geppetto-generatedcode-SefNodeGen-4958-securitymanager:$IMAGE_TAG .
+          docker push $ECR_REGISTRY/geppetto-generatedcode-SefNodeGen-4958-securitymanager:$IMAGE_TAG
           echo "Successfully build the  docker image for securitymanager and pushed to aws ecr"
 
           cd ../../custom_services/apigateway
-          docker build -t $ECR_REGISTRY/geppetto-generatedcode-systementryfeature-4958-apigateway:$IMAGE_TAG .
-          docker push $ECR_REGISTRY/geppetto-generatedcode-systementryfeature-4958-apigateway:$IMAGE_TAG
+          docker build -t $ECR_REGISTRY/geppetto-generatedcode-SefNodeGen-4958-apigateway:$IMAGE_TAG .
+          docker push $ECR_REGISTRY/geppetto-generatedcode-SefNodeGen-4958-apigateway:$IMAGE_TAG
           echo "Successfully build the docker image for apigateway and pushed to aws ecr"
 
-          cd ../systementryfeature
-          docker build -t $ECR_REGISTRY/geppetto-generatedcode-systementryfeature-4958-systementryfeature:$IMAGE_TAG .
-          docker push $ECR_REGISTRY/geppetto-generatedcode-systementryfeature-4958-systementryfeature:$IMAGE_TAG
-          echo "Successfully build the docker image for systementryfeature and pushed to aws ecr"
+          cd ../SefNodeGen
+          docker build -t $ECR_REGISTRY/geppetto-generatedcode-SefNodeGen-4958-SefNodeGen:$IMAGE_TAG .
+          docker push $ECR_REGISTRY/geppetto-generatedcode-SefNodeGen-4958-SefNodeGen:$IMAGE_TAG
+          echo "Successfully build the docker image for SefNodeGen and pushed to aws ecr"
      
   Deploy_backend:
     needs: Build_and_upload_docker_images_to_ECR
@@ -97,7 +97,7 @@ jobs:
           node-version: 10
       - name: EFS volume attach task definition
         id: EfsID
-        run: echo "::set-output name=FILESYSTEM_ID::$(aws efs create-file-system --performance-mode generalPurpose --throughput-mode bursting --encrypted --tags Key=Name,Value=systementryfeature-4958 | jq '.FileSystemId')"
+        run: echo "::set-output name=FILESYSTEM_ID::$(aws efs create-file-system --performance-mode generalPurpose --throughput-mode bursting --encrypted --tags Key=Name,Value=SefNodeGen-4958 | jq '.FileSystemId')"
       - name: EFS SecurityGroups Added
         run: |
           sleep 10s
@@ -128,7 +128,7 @@ jobs:
       - name: Run the ECS task definition
         id: networkInterfaceId
         run: |
-          echo "::set-output name=run_task::$(aws ecs run-task --capacity-provider-strategy capacityProvider=FARGATE_SPOT --cluster ${{  env.AWS_ECS_CLUSTER_NAME  }}  --task-definition systementryfeature  --network-configuration "awsvpcConfiguration={subnets=[${{  env.AWS_VPC_SUBNET  }}],securityGroups=[${{  env.AWS_VPC_SECURITY_GROUP  }}],assignPublicIp=ENABLED}" | jq  -r '.tasks[].taskArn')"
+          echo "::set-output name=run_task::$(aws ecs run-task --capacity-provider-strategy capacityProvider=FARGATE_SPOT --cluster ${{  env.AWS_ECS_CLUSTER_NAME  }}  --task-definition SefNodeGen  --network-configuration "awsvpcConfiguration={subnets=[${{  env.AWS_VPC_SUBNET  }}],securityGroups=[${{  env.AWS_VPC_SECURITY_GROUP  }}],assignPublicIp=ENABLED}" | jq  -r '.tasks[].taskArn')"
           sleep 20s
       - uses: jungwinter/split@v1
         id: split
@@ -162,17 +162,17 @@ jobs:
       - name: Installing angular/cli
         run: npm install -g @angular/cli
       - name: Installing the node modules
-        working-directory: ./application/client/desktop/systementryfeature
+        working-directory: ./application/client/desktop/SefNodeGen
         run: |
           npm install
           npm i @ng-select/ng-select
       - name: Link the backend apigateway
-        working-directory: ./application/client/desktop/systementryfeature/src/environments
+        working-directory: ./application/client/desktop/SefNodeGen/src/environments
         run: |
           rm -rf environment.ts
           echo 'export const environment = { DESKTOP_API: `http://${{  needs.Deploy_backend.outputs.public_ip  }}:8000/desktop`, MOBILE_API: `/api/mobile`, production: false };' >> environment.ts
       - name: Production build
-        working-directory: ./application/client/desktop/systementryfeature
+        working-directory: ./application/client/desktop/SefNodeGen
         run: ng build
       - uses: jakejarvis/s3-sync-action@v0.5.1
         with:
@@ -182,7 +182,7 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{  env.AWS_ACCESS_KEY_ID  }}
           AWS_SECRET_ACCESS_KEY: ${{  env.AWS_SECRET_ACCESS_KEY  }}
           AWS_REGION: ${{  env.AWS_REGION  }}
-          SOURCE_DIR: "application/client/desktop/systementryfeature/dist/systementryfeature"
+          SOURCE_DIR: "application/client/desktop/SefNodeGen/dist/SefNodeGen"
       - name: Enable the static webhosting
         run: |
           aws s3 website s3://${{ env.AWS_S3_BUCKET_NAME }}/ --index-document index.html --error-document error.html
@@ -198,10 +198,10 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_route53_hosted_zone_id: ${{ secrets.AWS_ROUTE53_HOSTED_ZONE_ID }}
           aws_route53_rr_action: "CREATE"
-          aws_route53_rr_name: "systementryfeature-4958.geppetto.link"
+          aws_route53_rr_name: "SefNodeGen-4958.geppetto.link"
           aws_route53_rr_type: "CNAME"
           aws_route53_rr_ttl: "300"
-          aws_route53_rr_value: "systementryfeature-4958.geppetto.link.s3-website-us-east-1.amazonaws.com."
+          aws_route53_rr_value: "SefNodeGen-4958.geppetto.link.s3-website-us-east-1.amazonaws.com."
   Mongodb_Script_Upload:
     needs: [ Route53_geppetto_link, Deploy_backend ]
     runs-on: ubuntu-latest
@@ -212,4 +212,4 @@ jobs:
       - name: Take time to Mongodb_Script_Upload
         run: |
           sleep 10s
-          mongo ${{ needs.Deploy_backend.outputs.public_ip }}:27017/systementryfeature_4958 -u admin -p password --authenticationDatabase admin < devops/local/docker/mongo.js
+          mongo ${{ needs.Deploy_backend.outputs.public_ip }}:27017/SefNodeGen_4958 -u admin -p password --authenticationDatabase admin < devops/local/docker/mongo.js

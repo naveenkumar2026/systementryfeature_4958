@@ -24,7 +24,7 @@ const routes: Routes = [
        { path: '', component: TemplateComponent, pathMatch: 'full'   } ,
 { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
 
-{ path : 'systementryfeature', loadChildren: () => import('./systementryfeature/systementryfeature.module').then(m => m.SystementryfeatureModule), canActivate: [AuthGuard] } , 
+{ path : 'SefNodeGen', loadChildren: () => import('./SefNodeGen/SefNodeGen.module').then(m => m.SefNodeGenModule), canActivate: [AuthGuard] } , 
 ];
 
 @NgModule({

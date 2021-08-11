@@ -4,6 +4,6 @@
     ,
 {"resources":"admin", "role":"Guest"}
     ,
-{"resources":"systementryfeature", "role":"Guest"}
+{"resources":"SefNodeGen", "role":"Guest"}
     
 ]

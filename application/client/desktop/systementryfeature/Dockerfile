@@ -7,5 +7,5 @@ RUN npm install -g @angular/cli
 RUN npm install -g serve
 RUN npm install -g concurrently
 RUN npm upgrade -g @angular/cli
-CMD ng build  --output-hashing all && concurrently "ng build --watch" "serve dist/systementryfeature"
+CMD ng build  --output-hashing all && concurrently "ng build --watch" "serve dist/SefNodeGen"
 EXPOSE 5000

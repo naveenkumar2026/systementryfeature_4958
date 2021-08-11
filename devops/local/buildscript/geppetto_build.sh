@@ -1,14 +1,14 @@
 #!bin/bash
 
-APPLICATION='/systementryfeature'
+APPLICATION='/SefNodeGen'
 
 CUSTOMSERVICEPATH='../../../services/custom_services'
 
 HELMPATH='../devops/local'
 
 
-DESKTOPCODE='../../../application/client/desktop/systementryfeature'
-DESKTOPIMAGENAME='geppettotest/systementryfeature-desktop:1.0'
+DESKTOPCODE='../../../application/client/desktop/SefNodeGen'
+DESKTOPIMAGENAME='geppettotest/SefNodeGen-desktop:1.0'
 
 echo "Started to build docker images for pod...."
 
@@ -76,7 +76,7 @@ helm_install () {
 
 cd $HELMPATH
 helm install --dry-run --debug ./helm
-helm install --name systementryfeature-4958 ./helm
+helm install --name SefNodeGen-4958 ./helm
 if [ $? -eq 0 ]; then
     echo "App Deployment is Done"
 else

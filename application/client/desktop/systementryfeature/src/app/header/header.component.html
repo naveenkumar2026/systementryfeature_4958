@@ -39,12 +39,12 @@ Home</a>
             </div>
             <div class="list-group panel" *ngIf='isAdminUser'><a class="list-group-item list-group-item-success" [routerLink]="['/admin']">{{'source.admin' | i18next}}</a>
             </div>
-            <div class="list-group panel" *ngIf="isApplicable('systementryfeature') && userId"> <a href="#systementryfeature" class="list-group-item list-group-item-success"
-                data-toggle="collapse" data-parent="#MainMenu">systementryfeature <i class="fa fa-caret-down"></i></a>
+            <div class="list-group panel" *ngIf="isApplicable('SefNodeGen') && userId"> <a href="#SefNodeGen" class="list-group-item list-group-item-success"
+                data-toggle="collapse" data-parent="#MainMenu">SefNodeGen <i class="fa fa-caret-down"></i></a>
 
                 <div
-                class="collapse" id="systementryfeature">
-<a class="list-group-item" [routerLink]="['/systementryfeature']">{{'source.systementryfeature' | i18next}}</a>
+                class="collapse" id="SefNodeGen">
+<a class="list-group-item" [routerLink]="['/SefNodeGen']">{{'source.SefNodeGen' | i18next}}</a>
 
             </div>
         </div>

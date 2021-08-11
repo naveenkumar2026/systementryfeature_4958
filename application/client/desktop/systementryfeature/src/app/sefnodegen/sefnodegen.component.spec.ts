@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SystementryfeatureComponent } from './systementryfeature.component';
+import { SefNodeGenComponent } from './SefNodeGen.component';
 
-describe('SystementryfeatureComponent', () => {
-  let component: SystementryfeatureComponent;
-  let fixture: ComponentFixture<SystementryfeatureComponent>;
+describe('SefNodeGenComponent', () => {
+  let component: SefNodeGenComponent;
+  let fixture: ComponentFixture<SefNodeGenComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SystementryfeatureComponent ]
+      declarations: [ SefNodeGenComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SystementryfeatureComponent);
+    fixture = TestBed.createComponent(SefNodeGenComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

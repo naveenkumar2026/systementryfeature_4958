@@ -8,7 +8,7 @@ services:
       - MONGO_INITDB_ROOT_USERNAME=admin
       - MONGO_INITDB_ROOT_PASSWORD=password
     volumes:
-      - systementryfeature_4958-volume:/data/db
+      - SefNodeGen_4958-volume:/data/db
     ports:
       - "27018:27017"
     healthcheck:
@@ -70,14 +70,14 @@ services:
       - camundaservice
       - authproxy
       - securitymanager
-      - systementryfeature
+      - SefNodeGen
 
 
 
-  systementryfeature: 
-    build: ../../../application/services/custom_services/systementryfeature
-    image: systementryfeature-4958
-    container_name: systementryfeature-4958
+  SefNodeGen: 
+    build: ../../../application/services/custom_services/SefNodeGen
+    image: SefNodeGen-4958
+    container_name: SefNodeGen-4958
     ports: 
       - 8005:8005
     env_file: .env
@@ -86,5 +86,5 @@ services:
 
 
 volumes:
-  systementryfeature_4958-volume:
+  SefNodeGen_4958-volume:
     driver: local

@@ -31,7 +31,7 @@ module.exports = {
                 {
                   "readOnly": null,
                   "containerPath": "/data/db",
-                  "sourceVolume": "systementryfeature"
+                  "sourceVolume": "SefNodeGen"
                 }
               ],
             "volumesFrom": null,
@@ -42,7 +42,7 @@ module.exports = {
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                    "awslogs-group": "/ecs/systementryfeature",
+                    "awslogs-group": "/ecs/SefNodeGen",
                     "awslogs-region": "us-east-1",
                     "awslogs-stream-prefix": "ecs",
                     "awslogs-create-group": "true"
@@ -75,7 +75,7 @@ module.exports = {
                 {
                   "readOnly": null,
                   "containerPath": "/path/to/container",
-                  "sourceVolume": "systementryfeature"
+                  "sourceVolume": "SefNodeGen"
                 }
               ],
             "volumesFrom": null,
@@ -86,7 +86,7 @@ module.exports = {
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                    "awslogs-group": "/ecs/systementryfeature",
+                    "awslogs-group": "/ecs/SefNodeGen",
                     "awslogs-region": "us-east-1",
                     "awslogs-stream-prefix": "ecs",
                     "awslogs-create-group": "true"
@@ -101,7 +101,7 @@ module.exports = {
         },
         {
             "name": "apigateway-4958",
-            "image": `${process.env.AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/geppetto-generatedcode-systementryfeature-4958-apigateway:1`,
+            "image": `${process.env.AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/geppetto-generatedcode-SefNodeGen-4958-apigateway:1`,
             "memoryReservation": "300",
             "resourceRequirements": null,
             "essential": true,
@@ -113,15 +113,15 @@ module.exports = {
                 }
             ],
             "environmentFiles": null,
-            "environment": [{"name":"MONGO_DB_URL","value":"mongodb://admin:password@127.0.0.1:27017/systementryfeature_4958?authSource=admin"},{"name":"CAMUNDAPOD_URL","value":"http://127.0.0.1:8080"},{"name":"SECURITYURL","value":"http://127.0.0.1:8003"},{"name":"AUTHPROXYURL","value":"http://127.0.0.1:8001"},{"name":"ADMINURL","value":"http://127.0.0.1:8004"},{"name":"CAMUNDAURL","value":"http://127.0.0.1:8002"},{"name":"APIGATEWAY","value":"http://127.0.0.1:8000"}
-            ,{"name":"SYSTEMENTRYFEATUREURL","value":"http://127.0.0.1:8005"}
+            "environment": [{"name":"MONGO_DB_URL","value":"mongodb://admin:password@127.0.0.1:27017/SefNodeGen_4958?authSource=admin"},{"name":"CAMUNDAPOD_URL","value":"http://127.0.0.1:8080"},{"name":"SECURITYURL","value":"http://127.0.0.1:8003"},{"name":"AUTHPROXYURL","value":"http://127.0.0.1:8001"},{"name":"ADMINURL","value":"http://127.0.0.1:8004"},{"name":"CAMUNDAURL","value":"http://127.0.0.1:8002"},{"name":"APIGATEWAY","value":"http://127.0.0.1:8000"}
+            ,{"name":"SefNodeGenURL","value":"http://127.0.0.1:8005"}
             ],
             "secrets": null,
             "mountPoints": [
                 {
                   "readOnly": null,
                   "containerPath": "/path/to/container",
-                  "sourceVolume": "systementryfeature"
+                  "sourceVolume": "SefNodeGen"
                 }
               ],
             "volumesFrom": null,
@@ -132,7 +132,7 @@ module.exports = {
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                    "awslogs-group": "/ecs/systementryfeature",
+                    "awslogs-group": "/ecs/SefNodeGen",
                     "awslogs-region": "us-east-1",
                     "awslogs-stream-prefix": "ecs",
                     "awslogs-create-group": "true"
@@ -147,7 +147,7 @@ module.exports = {
         },        
         {
             "name": "authproxy-4958",
-            "image": `${process.env.AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/geppetto-generatedcode-systementryfeature-4958-authproxy:1`,
+            "image": `${process.env.AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/geppetto-generatedcode-SefNodeGen-4958-authproxy:1`,
             "memoryReservation": "300",
             "resourceRequirements": null,
             "essential": true,
@@ -159,13 +159,13 @@ module.exports = {
                 }
             ],
             "environmentFiles": null,
-            "environment": [{"name":"MONGO_DB_URL","value":"mongodb://admin:password@127.0.0.1:27017/systementryfeature_4958?authSource=admin"},{"name":"CAMUNDAURL","value":"http://127.0.0.1:8002"}],
+            "environment": [{"name":"MONGO_DB_URL","value":"mongodb://admin:password@127.0.0.1:27017/SefNodeGen_4958?authSource=admin"},{"name":"CAMUNDAURL","value":"http://127.0.0.1:8002"}],
             "secrets": null,
             "mountPoints": [
                 {
                   "readOnly": null,
                   "containerPath": "/path/to/container",
-                  "sourceVolume": "systementryfeature"
+                  "sourceVolume": "SefNodeGen"
                 }
               ],
             "volumesFrom": null,
@@ -176,7 +176,7 @@ module.exports = {
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                    "awslogs-group": "/ecs/systementryfeature",
+                    "awslogs-group": "/ecs/SefNodeGen",
                     "awslogs-region": "us-east-1",
                     "awslogs-stream-prefix": "ecs",
                     "awslogs-create-group": "true"
@@ -191,7 +191,7 @@ module.exports = {
         },
         {
             "name": "camundasvc-4958",
-            "image": `${process.env.AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/geppetto-generatedcode-systementryfeature-4958-camunda:1`,
+            "image": `${process.env.AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/geppetto-generatedcode-SefNodeGen-4958-camunda:1`,
             "memoryReservation": "300",
             "resourceRequirements": null,
             "essential": true,
@@ -203,13 +203,13 @@ module.exports = {
                 }
             ],
             "environmentFiles": null,
-            "environment": [{"name":"MONGO_DB_URL","value":"mongodb://admin:password@127.0.0.1:27017/systementryfeature_4958?authSource=admin"},{"name":"CAMUNDAPOD_URL","value":"http://127.0.0.1:8080"},{"name":"SECURITYURL","value":"http://127.0.0.1:8003"},{"name":"AUTHPROXYURL","value":"http://127.0.0.1:8001"},{"name":"ADMINURL","value":"http://127.0.0.1:8004"},{"name":"CAMUNDAURL","value":"http://127.0.0.1:8002"},{"name":"APIGATEWAY","value":"http://127.0.0.1:8000"}],
+            "environment": [{"name":"MONGO_DB_URL","value":"mongodb://admin:password@127.0.0.1:27017/SefNodeGen_4958?authSource=admin"},{"name":"CAMUNDAPOD_URL","value":"http://127.0.0.1:8080"},{"name":"SECURITYURL","value":"http://127.0.0.1:8003"},{"name":"AUTHPROXYURL","value":"http://127.0.0.1:8001"},{"name":"ADMINURL","value":"http://127.0.0.1:8004"},{"name":"CAMUNDAURL","value":"http://127.0.0.1:8002"},{"name":"APIGATEWAY","value":"http://127.0.0.1:8000"}],
             "secrets": null,
             "mountPoints": [
                 {
                   "readOnly": null,
                   "containerPath": "/path/to/container",
-                  "sourceVolume": "systementryfeature"
+                  "sourceVolume": "SefNodeGen"
                 }
               ],
             "volumesFrom": null,
@@ -220,7 +220,7 @@ module.exports = {
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                    "awslogs-group": "/ecs/systementryfeature",
+                    "awslogs-group": "/ecs/SefNodeGen",
                     "awslogs-region": "us-east-1",
                     "awslogs-stream-prefix": "ecs",
                     "awslogs-create-group": "true"
@@ -235,7 +235,7 @@ module.exports = {
         },
         {
             "name": "securitymanager-4958",
-            "image": `${process.env.AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/geppetto-generatedcode-systementryfeature-4958-securitymanager:1`,
+            "image": `${process.env.AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/geppetto-generatedcode-SefNodeGen-4958-securitymanager:1`,
             "memoryReservation": "300",
             "resourceRequirements": null,
             "essential": true,
@@ -247,12 +247,12 @@ module.exports = {
                 }
             ],
             "environmentFiles": null,
-            "environment": [{"name":"MONGO_DB_URL","value":"mongodb://admin:password@127.0.0.1:27017/systementryfeature_4958?authSource=admin"},{"name":"CAMUNDAPOD_URL","value":"http://127.0.0.1:8080"},{"name":"SECURITYURL","value":"http://127.0.0.1:8003"},{"name":"AUTHPROXYURL","value":"http://127.0.0.1:8001"},{"name":"ADMINURL","value":"http://127.0.0.1:8004"},{"name":"CAMUNDAURL","value":"http://127.0.0.1:8002"},{"name":"APIGATEWAY","value":"http://127.0.0.1:8000"}],
+            "environment": [{"name":"MONGO_DB_URL","value":"mongodb://admin:password@127.0.0.1:27017/SefNodeGen_4958?authSource=admin"},{"name":"CAMUNDAPOD_URL","value":"http://127.0.0.1:8080"},{"name":"SECURITYURL","value":"http://127.0.0.1:8003"},{"name":"AUTHPROXYURL","value":"http://127.0.0.1:8001"},{"name":"ADMINURL","value":"http://127.0.0.1:8004"},{"name":"CAMUNDAURL","value":"http://127.0.0.1:8002"},{"name":"APIGATEWAY","value":"http://127.0.0.1:8000"}],
             "mountPoints": [
                 {
                   "readOnly": null,
                   "containerPath": "/path/to/container",
-                  "sourceVolume": "systementryfeature"
+                  "sourceVolume": "SefNodeGen"
                 }
               ],
             "volumesFrom": null,
@@ -263,7 +263,7 @@ module.exports = {
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                    "awslogs-group": "/ecs/systementryfeature",
+                    "awslogs-group": "/ecs/SefNodeGen",
                     "awslogs-region": "us-east-1",
                     "awslogs-stream-prefix": "ecs",
                     "awslogs-create-group": "true"
@@ -277,8 +277,8 @@ module.exports = {
             }
         },
         {
-            "name": "systementryfeature-4958",
-            "image": `${process.env.AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/geppetto-generatedcode-systementryfeature-4958-systementryfeature:1`,
+            "name": "SefNodeGen-4958",
+            "image": `${process.env.AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/geppetto-generatedcode-SefNodeGen-4958-SefNodeGen:1`,
             "memoryReservation": "300",
             "resourceRequirements": null,
             "essential": true,
@@ -290,13 +290,13 @@ module.exports = {
                 }
             ],
             "environmentFiles": null,
-            "environment": [{"name":"MONGO_DB_URL","value":"mongodb://admin:password@127.0.0.1:27017/systementryfeature_4958?authSource=admin"}],
+            "environment": [{"name":"MONGO_DB_URL","value":"mongodb://admin:password@127.0.0.1:27017/SefNodeGen_4958?authSource=admin"}],
             "secrets": null,
             "mountPoints": [
                 {
                   "readOnly": null,
                   "containerPath": "/path/to/container",
-                  "sourceVolume": "systementryfeature"
+                  "sourceVolume": "SefNodeGen"
                 }
               ],
             "volumesFrom": null,
@@ -307,7 +307,7 @@ module.exports = {
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                    "awslogs-group": "/ecs/systementryfeature",
+                    "awslogs-group": "/ecs/SefNodeGen",
                     "awslogs-region": "us-east-1",
                     "awslogs-stream-prefix": "ecs",
                     "awslogs-create-group": "true"
@@ -334,7 +334,7 @@ module.exports = {
             "transitEncryption": "DISABLED",
             "rootDirectory": "/"
         },
-        "name": "systementryfeature",
+        "name": "SefNodeGen",
         "host": null,
         "dockerVolumeConfiguration": null
         }
@@ -343,7 +343,7 @@ module.exports = {
     "memory": "3072",
     "cpu": "1024",
     "executionRoleArn": `arn:aws:iam::${process.env.AWS_ACCOUNT_ID}:role/${process.env.AWS_ROLE_FOR_FARGATE}`,
-    "family": "systementryfeature",
+    "family": "SefNodeGen",
     "tags": [],
     "placementConstraints": [],
     "taskRoleArn": `arn:aws:iam::${process.env.AWS_ACCOUNT_ID}:role/${process.env.AWS_ROLE_FOR_FARGATE}`

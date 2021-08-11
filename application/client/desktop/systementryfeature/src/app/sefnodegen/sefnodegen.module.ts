@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SystementryfeatureComponent } from './systementryfeature.component';
+import { SefNodeGenComponent } from './SefNodeGen.component';
 import { NgbPaginationModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
@@ -14,11 +14,11 @@ import { NgbPaginationModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap'
         FormsModule, ReactiveFormsModule,
         NgbPaginationModule,
         RouterModule.forChild([
-            { path: '', component: SystementryfeatureComponent },
+            { path: '', component: SefNodeGenComponent },
         ])
     ],
     declarations: [
-        SystementryfeatureComponent,
+        SefNodeGenComponent,
     ]
 })
-export class SystementryfeatureModule { }
+export class SefNodeGenModule { }

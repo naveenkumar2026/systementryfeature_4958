@@ -5,7 +5,7 @@ import { ApiAdaptar }  from '../config/apiAdapter';
 import Controller from '../interface/controller.interface';
 import { CustomLogger } from '../config/Logger'
 
-export class systemEntryFeatureController implements Controller {
+export class SefNodeGenController implements Controller {
       public router = express.Router();
 
     constructor() {
@@ -13,64 +13,64 @@ export class systemEntryFeatureController implements Controller {
     }
 
     private initializeRoutes() {
-        this.router.get('/systemEntryFeature/get/search', this.GpSearch);
-this.router.put('/systemEntryFeature', this.GpUpdate);
-this.router.get('/systemEntryFeature', this.GpGetAllValues);
-this.router.delete('/systemEntryFeature/:id', this.GpDelete);
-this.router.post('/systemEntryFeature', this.GpCreate);
+        this.router.get('/SefNodeGen/get/search', this.GpSearch);
+this.router.put('/SefNodeGen', this.GpUpdate);
+this.router.get('/SefNodeGen', this.GpGetAllValues);
+this.router.delete('/SefNodeGen/:id', this.GpDelete);
+this.router.post('/SefNodeGen', this.GpCreate);
     }
 
 public GpSearch(req: Request, res: Response) {
-            new CustomLogger().showLogger('info', 'Enter into systemEntryFeatureController.ts: GpSearch');
-        new ApiAdaptar().get(Constant.SYSTEMENTRYFEATUREURL + `${req.url}` )
+            new CustomLogger().showLogger('info', 'Enter into SefNodeGenController.ts: GpSearch');
+        new ApiAdaptar().get(Constant.SefNodeGenURL + `${req.url}` )
         .then((res: any) => res.response.json()).then(result => {
               req.baseUrl === '/mobile' ? res.send(result) :
               req.baseUrl === '/desktop' ? res.send(result) : res.send(null)
-            new CustomLogger().showLogger('info', 'Exit from systemEntryFeatureController.ts: GpSearch');
+            new CustomLogger().showLogger('info', 'Exit from SefNodeGenController.ts: GpSearch');
         }).catch(err => {
             res.send(err);
         });
     }
 public GpUpdate(req: Request, res: Response) {
-            new CustomLogger().showLogger('info', 'Enter into systemEntryFeatureController.ts: GpUpdate');
-        new ApiAdaptar().put(Constant.SYSTEMENTRYFEATUREURL + `${req.url}` , req.body)
+            new CustomLogger().showLogger('info', 'Enter into SefNodeGenController.ts: GpUpdate');
+        new ApiAdaptar().put(Constant.SefNodeGenURL + `${req.url}` , req.body)
         .then((res: any) => res.response.json()).then(result => {
               req.baseUrl === '/mobile' ? res.send(result) :
               req.baseUrl === '/desktop' ? res.send(result) : res.send(null)
-            new CustomLogger().showLogger('info', 'Exit from systemEntryFeatureController.ts: GpUpdate');
+            new CustomLogger().showLogger('info', 'Exit from SefNodeGenController.ts: GpUpdate');
         }).catch(err => {
             res.send(err);
         });
     }
 public GpGetAllValues(req: Request, res: Response) {
-            new CustomLogger().showLogger('info', 'Enter into systemEntryFeatureController.ts: GpGetAllValues');
-        new ApiAdaptar().get(Constant.SYSTEMENTRYFEATUREURL + `${req.url}` )
+            new CustomLogger().showLogger('info', 'Enter into SefNodeGenController.ts: GpGetAllValues');
+        new ApiAdaptar().get(Constant.SefNodeGenURL + `${req.url}` )
         .then((res: any) => res.response.json()).then(result => {
               req.baseUrl === '/mobile' ? res.send(result) :
               req.baseUrl === '/desktop' ? res.send(result) : res.send(null)
-            new CustomLogger().showLogger('info', 'Exit from systemEntryFeatureController.ts: GpGetAllValues');
+            new CustomLogger().showLogger('info', 'Exit from SefNodeGenController.ts: GpGetAllValues');
         }).catch(err => {
             res.send(err);
         });
     }
 public GpDelete(req: Request, res: Response) {
-            new CustomLogger().showLogger('info', 'Enter into systemEntryFeatureController.ts: GpDelete');
-        new ApiAdaptar().delete(Constant.SYSTEMENTRYFEATUREURL + `${req.url}` )
+            new CustomLogger().showLogger('info', 'Enter into SefNodeGenController.ts: GpDelete');
+        new ApiAdaptar().delete(Constant.SefNodeGenURL + `${req.url}` )
         .then((res: any) => res.response.json()).then(result => {
               req.baseUrl === '/mobile' ? res.send(result) :
               req.baseUrl === '/desktop' ? res.send(result) : res.send(null)
-            new CustomLogger().showLogger('info', 'Exit from systemEntryFeatureController.ts: GpDelete');
+            new CustomLogger().showLogger('info', 'Exit from SefNodeGenController.ts: GpDelete');
         }).catch(err => {
             res.send(err);
         });
     }
 public GpCreate(req: Request, res: Response) {
-            new CustomLogger().showLogger('info', 'Enter into systemEntryFeatureController.ts: GpCreate');
-        new ApiAdaptar().post(Constant.SYSTEMENTRYFEATUREURL + `${req.url}` , req.body)
+            new CustomLogger().showLogger('info', 'Enter into SefNodeGenController.ts: GpCreate');
+        new ApiAdaptar().post(Constant.SefNodeGenURL + `${req.url}` , req.body)
         .then((res: any) => res.response.json()).then(result => {
               req.baseUrl === '/mobile' ? res.send(result) :
               req.baseUrl === '/desktop' ? res.send(result) : res.send(null)
-            new CustomLogger().showLogger('info', 'Exit from systemEntryFeatureController.ts: GpCreate');
+            new CustomLogger().showLogger('info', 'Exit from SefNodeGenController.ts: GpCreate');
         }).catch(err => {
             res.send(err);
         });

@@ -1,7 +1,7 @@
 {
-  "name": "systementryfeature",
+  "name": "sefnodegen",
   "version": "1.0.0",
-  "description": "systementryfeature Node Microservice",
+  "description": "SefNodeGen Node Microservice",
   "main": "dist/server.js",
   "scripts": {
     "test": "ng test",

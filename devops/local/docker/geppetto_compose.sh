@@ -1,6 +1,6 @@
 #!bin/bash
 
-DESKTOPCODE='../../../application/client/desktop/systementryfeature'
+DESKTOPCODE='../../../application/client/desktop/SefNodeGen'
 
 COMPOSEPATH='../../../../devops/local/docker/'
 
@@ -13,8 +13,8 @@ do
     c)  
          echo "Creating new docker images and containers"
          cd $DESKTOPCODE
-         docker build -t systementryfeatureui-4958 .
-         docker run --name systementryfeatureui-4958 --restart=unless-stopped -d -p 5055:5000 systementryfeatureui-4958
+         docker build -t SefNodeGenui-4958 .
+         docker run --name SefNodeGenui-4958 --restart=unless-stopped -d -p 5055:5000 SefNodeGenui-4958
          sleep 15
          echo "UI build is done..."
 
@@ -23,7 +23,7 @@ do
          echo "uploading the mongo script..."
          sleep 50
          docker cp mongo.js mongo-4958:/data/db/
-         docker exec -ti mongo-4958 mongo -u admin -p 'password' --authenticationDatabase 'admin' systementryfeature_4958 /data/db/mongo.js
+         docker exec -ti mongo-4958 mongo -u admin -p 'password' --authenticationDatabase 'admin' SefNodeGen_4958 /data/db/mongo.js
          sleep 10
          echo "Process completed"
          echo " Your application is deployed here the link, http://localhost:5055 "
@@ -31,21 +31,21 @@ do
     d)
          echo "Now Deleting all containers and images"
          docker-compose down -v --rmi all 
-         docker rm -f systementryfeatureui-4958
-         docker rmi systementryfeatureui-4958
+         docker rm -f SefNodeGenui-4958
+         docker rmi SefNodeGenui-4958
          echo "Process completed"
          ;;
     r)
          echo "Now Re-starting the stopped containers"
          docker-compose start
-         docker restart systementryfeatureui-4958
+         docker restart SefNodeGenui-4958
          sleep 35
          echo "Process completed"
          ;;
     s)
          echo "Now stopping the running containers"
          docker-compose stop
-         docker stop systementryfeatureui-4958
+         docker stop SefNodeGenui-4958
          echo "Process completed"
          ;;
     *)

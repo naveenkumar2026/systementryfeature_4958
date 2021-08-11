@@ -1,6 +1,6 @@
 FROM node:14.11.0-alpine
-COPY . /systementryfeature
-WORKDIR /systementryfeature
+COPY . /sefnodegen
+WORKDIR /sefnodegen
 RUN npm install
 RUN npm i -g ts-node
 CMD npm run prod
